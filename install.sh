@@ -3,19 +3,19 @@
 yum -y update
 sudo yum install -y yum-utils
 sudo yum install -y centos-release-scl
-sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
-#devtoolset-7 comes with gcc 7.2.1 and g++ 7.2.1
-sudo yum install -y devtoolset-7
+sudo yum-config-manager --enable rhel-server-rhscl-7.3-rpms
+#devtoolset-7 comes with gcc 7.3 and g++ 7.3
+sudo yum install -y devtoolset-7.3
 export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"
-echo 'export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"' >> /etc/drydock/.env
-scl enable devtoolset-7 bash
+echo 'export PATH="/opt/rh/devtoolset-7.3/root/usr/bin:$PATH"' >> /etc/drydock/.env
+scl enable devtoolset-7.3 bash
 gcc --version
 g++ --version
 
 
 #Add this 3rd party repo to install clang-5.0.1
 echo "[alonid-llvm-5.0.1]
-name=Copr repo for llvm-3.9.0 owned by alonid
+name=Copr repo for llvm-7.0.0 owned by alonid
 baseurl=https://copr-be.cloud.fedoraproject.org/results/alonid/llvm-5.0.1/epel-7-x86_64/
 type=rpm-md
 skip_if_unavailable=True
