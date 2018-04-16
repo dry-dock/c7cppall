@@ -4,7 +4,6 @@ yum -y update
 sudo yum install -y yum-utils
 sudo yum install -y centos-release-scl
 sudo yum-config-manager --enable rhel-server-rhscl-7.2-rpms
-#devtoolset-7 comes with gcc 7.2 and g++ 7.2
 sudo yum install -y devtoolset-7.2
 export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"
 echo 'export PATH="/opt/rh/devtoolset-7.2/root/usr/bin:$PATH"' >> /etc/drydock/.env
