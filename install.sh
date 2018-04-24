@@ -3,11 +3,11 @@
 yum -y update
 sudo yum install -y yum-utils
 sudo yum install -y centos-release-scl
-sudo yum-config-manager --enable rhel-server-rhscl-7.2*-rpms
-sudo yum install -y devtoolset-7.2*
+sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
+sudo yum install -y devtoolset-7
 export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"
-echo 'export PATH="/opt/rh/devtoolset-7.2*/root/usr/bin:$PATH"' >> /etc/drydock/.env
-scl enable devtoolset-7.2* bash
+echo 'export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"' >> /etc/drydock/.env
+scl enable devtoolset-7 bash
 gcc --version
 g++ --version
 
@@ -24,6 +24,7 @@ repo_gpgcheck=0
 enabled=1
 enabled_metadata=1" >> /etc/yum.repos.d/epel.repo
 
+sudo rpm --import  https://copr-be.cloud.fedoraproject.org/results/alonid/llvm-5.0.1/pubkey.gpg
 yum install clang-5.0.1 -y
 
 export PATH=/opt/llvm-5.0.1/bin:$PATH
