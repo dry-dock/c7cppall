@@ -3,12 +3,12 @@
 yum -y update
 sudo yum install -y yum-utils
 sudo yum install -y centos-release-scl
-sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
+sudo yum-config-manager --enable rhel-server-rhscl-8-rpms
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo
-sudo yum install -y devtoolset-7
-export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"
-echo 'export PATH="/opt/rh/devtoolset-7/root/usr/bin:$PATH"' >> /etc/drydock/.env
-scl enable devtoolset-7 bash
+sudo yum install -y devtoolset-8
+export PATH="/opt/rh/devtoolset-8/root/usr/bin:$PATH"
+echo 'export PATH="/opt/rh/devtoolset-8/root/usr/bin:$PATH"' >> /etc/drydock/.env
+scl enable devtoolset-8 bash
 gcc --version
 g++ --version
 
